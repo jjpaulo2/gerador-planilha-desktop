@@ -199,7 +199,7 @@ def get_formated_items(rated_rows: List[tuple], sheet_title: str) -> List[tuple]
 # Função que executa os passos em ordem lógica
 # *
 
-def read_and_format_workbook(filename: str) -> List[list]:
+def read_and_format_workbook_to_row_list(filename: str) -> List[list]:
     """
     Função que executa os passos de leitura e formatação em ordem lógica.
     Os passos são:

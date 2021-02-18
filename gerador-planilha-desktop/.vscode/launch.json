@@ -8,7 +8,7 @@
             "name": "Python: Módulo",
             "type": "python",
             "request": "launch",
-            "module": "leitor_planilha"
+            "module": "gerador_planilha"
         }
     ]
 }
