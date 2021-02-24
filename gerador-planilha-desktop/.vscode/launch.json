@@ -5,6 +5,19 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: Simple Gui",
+            "type": "python",
+            "request": "launch",
+            "module": "gui"
+        },
+        {
+            "name": "Python: Arquivo Atual",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
             "name": "Python: Módulo",
             "type": "python",
             "request": "launch",
