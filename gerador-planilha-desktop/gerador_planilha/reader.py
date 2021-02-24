@@ -8,11 +8,13 @@ from openpyxl.worksheet.worksheet import Worksheet
 
 from typing import List
 
+from . import window_updater
+
 # *
 # Funções que cuidam de carregar o arquivo do Excel
 # *
 
-def load_workbook_file(filename: str) -> Workbook:
+def load_workbook_file(filename: str, window=None) -> Workbook:
     """
     Função que carrega o arquivo na memória.
 
@@ -24,9 +26,13 @@ def load_workbook_file(filename: str) -> Workbook:
         Workbook: arquivo para ser manipulado pelo módulo 
     """
     print('Carregando arquivo...')
+    window_updater.update(window)
+
     workbook_file = load_workbook(filename=filename)
     
     print('Arquivo carregado com sucesso.')
+    window_updater.update(window)
+
     return workbook_file
 
 
@@ -34,7 +40,7 @@ def load_workbook_file(filename: str) -> Workbook:
 # Funções que fazem verificações e retornam valores booleanos
 # *
 
-def verify_empty_row(row: tuple) -> bool:
+def verify_empty_row(row: tuple, window=None) -> bool:
     """
     Função que verifica se a linha está vazia.
 
@@ -52,7 +58,7 @@ def verify_empty_row(row: tuple) -> bool:
     return is_empty_row
 
 
-def verify_row_contains_rating(sheet_row: tuple) -> bool:
+def verify_row_contains_rating(sheet_row: tuple, window=None) -> bool:
     """
     Função que retorna apenas as linhas onde o campo de `avaliação
     concreta` é marcado com `SIM`.
@@ -80,7 +86,7 @@ def verify_row_contains_rating(sheet_row: tuple) -> bool:
 #       - formatar as linhas para o formato que será utilizado no final
 # *
 
-def get_worksheet_used_rows(sheet: Worksheet) -> int:
+def get_worksheet_used_rows(sheet: Worksheet, window=None) -> int:
     """
     Função que conta as linhas utilizadas da planilha.
 
@@ -91,10 +97,12 @@ def get_worksheet_used_rows(sheet: Worksheet) -> int:
         int: quantidade de linhas utilizadas
     """
     print(f'Contando linhas utilizadas na planilha "{sheet.title}"...')
+    window_updater.update(window)
+
     count = 0
 
     for row in sheet.iter_rows(values_only=True):
-        if verify_empty_row(row):
+        if verify_empty_row(row, window=window):
             break
 
         count += 1
@@ -102,7 +110,7 @@ def get_worksheet_used_rows(sheet: Worksheet) -> int:
     return count 
 
 
-def get_rating_rows(sheet: Worksheet, max_row: int) -> List[tuple]:
+def get_rating_rows(sheet: Worksheet, max_row: int, window=None) -> List[tuple]:
     """
     Função que retorna todas as linhas onde o campo de `avaliação
     concreta` é marcado com `SIM`.
@@ -115,17 +123,19 @@ def get_rating_rows(sheet: Worksheet, max_row: int) -> List[tuple]:
         List[tuple]: lista com todas as linhas que contém avaliação
     """
     print('Verificando as linhas da planilha...')
+    window_updater.update(window)
+
     rated_rows = []
 
     for index, row in enumerate(sheet.iter_rows(values_only=True)):
         
-        if (index < max_row) and verify_row_contains_rating(row):
+        if (index < max_row) and verify_row_contains_rating(row, window=window):
             rated_rows.append(row)
 
     return rated_rows
 
 
-def get_policy_level(rated_row: tuple) -> str:
+def get_policy_level(rated_row: tuple, window=None) -> str:
     """
     Função que retorna o valor do campo de `política avaliada`.
 
@@ -165,7 +175,7 @@ def get_policy_level(rated_row: tuple) -> str:
     return policy
 
 
-def get_formated_items(rated_rows: List[tuple], sheet_title: str) -> List[tuple]:
+def get_formated_items(rated_rows: List[tuple], sheet_title: str, window=None) -> List[tuple]:
     """
     Função que formata as linhas que possuem `avaliação concreta`
     para o formato final adotado.
@@ -178,10 +188,12 @@ def get_formated_items(rated_rows: List[tuple], sheet_title: str) -> List[tuple]
         List[tuple]: lista com as linhas utilizando o formato final
     """
     print('Formatando a planilha...')
+    window_updater.update(window)
+
     formated_items = []
 
     for row in rated_rows:
-        policy = get_policy_level(row)
+        policy = get_policy_level(row, window=window)
 
         formated_item = (
             sheet_title,
@@ -199,7 +211,7 @@ def get_formated_items(rated_rows: List[tuple], sheet_title: str) -> List[tuple]
 # Função que executa os passos em ordem lógica
 # *
 
-def read_and_format_workbook_to_row_list(filename: str) -> List[list]:
+def read_and_format_workbook_to_row_list(filename: str, window=None) -> List[list]:
     """
     Função que executa os passos de leitura e formatação em ordem lógica.
     Os passos são:
@@ -219,7 +231,7 @@ def read_and_format_workbook_to_row_list(filename: str) -> List[list]:
         List[list]: lista com todas as linhas que contém avaliação 
                     já formatadas
     """
-    workbook = load_workbook_file(filename)
+    workbook = load_workbook_file(filename, window=window)
     sheets_names = workbook.sheetnames
 
     formatted_sheets = []
@@ -228,11 +240,13 @@ def read_and_format_workbook_to_row_list(filename: str) -> List[list]:
         sheet = workbook[sheet_name]
         sheet_title = sheet['A1'].value
 
-        sheet_rows = get_worksheet_used_rows(sheet)
-        sheet_rated = get_rating_rows(sheet, sheet_rows)
-        sheet_formated = get_formated_items(sheet_rated, sheet_title)
+        sheet_rows = get_worksheet_used_rows(sheet, window=window)
+        sheet_rated = get_rating_rows(sheet, sheet_rows, window=window)
+        sheet_formated = get_formated_items(sheet_rated, sheet_title, window=window)
 
         formatted_sheets += sheet_formated
+
         print()
+        window_updater.update(window)
 
     return formatted_sheets
