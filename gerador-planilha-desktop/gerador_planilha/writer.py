@@ -157,7 +157,7 @@ def open_workbook_file(filename: str, window=None):
         execute(f'xdg-open "{filename}"')
 
     elif system_name() == 'Windows':
-        execute(f'start "{filename}"')
+        execute(f'powershell start "{filename}"')
 
     elif system_name() == 'Darwin':
         execute(f'open "{filename}"')
