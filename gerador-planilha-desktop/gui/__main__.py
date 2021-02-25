@@ -11,7 +11,7 @@ from . import main_loop
 sg.theme('Default1')
 
 layout = layout.get_layout(styles, sg)
-window = sg.Window('Gerador planilha', layout, size=(600,400), resizable = False, icon='gui/src/icon.png')
+window = sg.Window('Gerador planilha', layout, size=(600,400), resizable=True, icon='gui/src/icon.png')
 main_loop.main_loop(window)
 
 window.close()
