@@ -1,5 +1,5 @@
 import PySimpleGUIQt as sg
-from gerador_planilha import generate_worksheet
+from ..gerador_planilha import generate_worksheet
 
 def main_loop(window: sg.Window):
     """

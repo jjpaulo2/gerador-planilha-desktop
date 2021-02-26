@@ -4,12 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-openpyxl = "*"
-pysimpleguiqt = "*"
+openpyxl = "==3.0.6"
+pysimpleguiqt = "==0.35.0"
+pyinstaller = "==4.2"
 
 [dev-packages]
 pylint = "*"
-ipython = "*"
 jedi = "*"
 
 [requires]
