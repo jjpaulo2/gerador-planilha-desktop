@@ -35,7 +35,7 @@ Se ainda assim sobrarem dúvidas sobre o funcionamento do programa, você pode a
 
 Antes de utilizar o programa, é preciso que você esteja ciente da estrutura que as planilhas devem obedecer. 
 
-1. Planilha que será analisada
+#### **1. Planilha que será analisada**
 
 Esta planilha será feita por você. Portanto, garanta que ela esteja na seguinte estrutura, pois a extração dos dados dela depende disso. [Veja este exemplo](https://www.dropbox.com/scl/fi/aiwao0801exyeacwqqgwo/planilha-exemplo.xlsx?dl=0&rlkey=g308h7es1d4m406ryen4v61m9).
 
@@ -72,8 +72,9 @@ Esta planilha será feita por você. Portanto, garanta que ela esteja na seguint
         </tr>
     </table>
 </div>
+<br/>
 
-2. Planilha final gerada
+#### **2. Planilha final gerada**
 
 Esta planilha será gerada pelo programa, então não precisa se preocupar. Se tudo ocorrer de forma esperada, será gerada uma planilha que obedece a seguinte estrutura.
 
@@ -96,6 +97,7 @@ Esta planilha será gerada pelo programa, então não precisa se preocupar. Se t
         </tr>
     </table>
 </div>
+<br/>
 
 ## Sobre o código-fonte
 
