@@ -39,59 +39,63 @@ Antes de utilizar o programa, é preciso que você esteja ciente da estrutura qu
 
 Esta planilha será feita por você. Portanto, garanta que ela esteja na seguinte estrutura, pois a extração dos dados dela depende disso. [Veja este exemplo](https://www.dropbox.com/scl/fi/aiwao0801exyeacwqqgwo/planilha-exemplo.xlsx?dl=0&rlkey=g308h7es1d4m406ryen4v61m9).
 
-<table>
-    <thead>
-        <th colspan="5">NOME DO GRUPO</th>
-        <td>
-            <strong>N/A</strong>
-        </td>
-        <th colspan="8">AVALIAÇÃO</th>
-    </thead>
-    <tr>
-        <td rowspan="2">PESQUISADOR (NOME DO PESQUISADOR VINCULADO AO GRUPO)</td>
-        <td rowspan="2">OBRA (COPIAR TODA A DESCRIÇÃO DO LATTES)</td>
-        <td rowspan="2">ANO DE PUBLICAÇÃO (DE 2015 A 2019)</td>
-        <td rowspan="2">TIPO (LIVRO, CAPITULO OU ARTIGO EM PERIÓDICO)</td>
-        <td rowspan="2">OBSERVAÇÕES</td>
-        <td rowspan="2">
-            <strong>N/A</strong>
-        </td>
-        <td colspan="2">APRESENTA UMA AVALIAÇÃO CONCRETA DE P.P.?</td>
-        <td rowspan="2">QUAL A METODOLOGIA DE AVALIAÇÃO UTILIZADA?</td>
-        <td rowspan="2">QUAIS INDICADORES FORAM UTILIZADOS NA AVALIAÇÃO?</td>
-        <td colspan="3">QUAL O NÍVEL DA POLÍTICA AVALIADA?</td>
-        <td rowspan="2">QUAIS INDICADORES SÃO CONSIDERADOS NO ESTUDO?</td>
-    </tr>
-    <tr>
-        <td>SIM</td>
-        <td>NÃO</td>
-        <td>MUNICIPAL</td>
-        <td>ESTADUAL</td>
-        <td>FEDERAL</td>
-    </tr>
-</table>
+<div style="overflow-x: scroll">
+    <table>
+        <thead>
+            <th colspan="5">NOME DO GRUPO</th>
+            <td>
+                <strong>N/A</strong>
+            </td>
+            <th colspan="8">AVALIAÇÃO</th>
+        </thead>
+        <tr>
+            <td rowspan="2">PESQUISADOR (NOME DO PESQUISADOR VINCULADO AO GRUPO)</td>
+            <td rowspan="2">OBRA (COPIAR TODA A DESCRIÇÃO DO LATTES)</td>
+            <td rowspan="2">ANO DE PUBLICAÇÃO (DE 2015 A 2019)</td>
+            <td rowspan="2">TIPO (LIVRO, CAPITULO OU ARTIGO EM PERIÓDICO)</td>
+            <td rowspan="2">OBSERVAÇÕES</td>
+            <td rowspan="2">
+                <strong>N/A</strong>
+            </td>
+            <td colspan="2">APRESENTA UMA AVALIAÇÃO CONCRETA DE P.P.?</td>
+            <td rowspan="2">QUAL A METODOLOGIA DE AVALIAÇÃO UTILIZADA?</td>
+            <td rowspan="2">QUAIS INDICADORES FORAM UTILIZADOS NA AVALIAÇÃO?</td>
+            <td colspan="3">QUAL O NÍVEL DA POLÍTICA AVALIADA?</td>
+            <td rowspan="2">QUAIS INDICADORES SÃO CONSIDERADOS NO ESTUDO?</td>
+        </tr>
+        <tr>
+            <td>SIM</td>
+            <td>NÃO</td>
+            <td>MUNICIPAL</td>
+            <td>ESTADUAL</td>
+            <td>FEDERAL</td>
+        </tr>
+    </table>
+</div>
 
 2. Planilha final gerada
 
 Esta planilha será gerada pelo programa, então não precisa se preocupar. Se tudo ocorrer de forma esperada, será gerada uma planilha que obedece a seguinte estrutura.
 
-<table>
-    <tr>
-        <td>nº</td>
-        <td>GRUPO</td>
-        <td>OBRA</td>
-        <td>ANO</td>
-        <td>TIPO</td>
-        <td>NÍVEL DA POLÍTICA</td>
-        <td>
-            <strong>N/A</strong>
-        </td>
-        <td>TIPO DE AVALIAÇÃO</td>
-        <td>TIPO DE INDICADOR</td>
-        <td>PERSPECTIVA DO INDICADOR</td>
-        <td>VARIÁVEIS RELACIONADAS</td>
-    </tr>
-</table>
+<div style="overflow-x: scroll">
+    <table>
+        <tr>
+            <td>nº</td>
+            <td>GRUPO</td>
+            <td>OBRA</td>
+            <td>ANO</td>
+            <td>TIPO</td>
+            <td>NÍVEL DA POLÍTICA</td>
+            <td>
+                <strong>N/A</strong>
+            </td>
+            <td>TIPO DE AVALIAÇÃO</td>
+            <td>TIPO DE INDICADOR</td>
+            <td>PERSPECTIVA DO INDICADOR</td>
+            <td>VARIÁVEIS RELACIONADAS</td>
+        </tr>
+    </table>
+</div>
 
 ## Sobre o código-fonte
 
