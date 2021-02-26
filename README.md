@@ -2,7 +2,7 @@
 
 Programa para desktop escrito em Python que lê uma planilha do Excel com uma estrutura pré definida e gera uma nova planilha resultante com os dados finais para análise.
 
-Peço que **leia atentamente toda esta descrição** antes de fazer uso deste software para evitar erros e frustrações. Em caso de problemas e sugestões de modificações, sinta-se a vontade para abrir uma [Issue neste repositório](https://github.com/jjpaulo2/gerador-planilha-desktop/issues) ou entrar em contato particularmente comigo. Se você não for programador, pode ignorar a seção [sobre o código-fonte](#sobre-o-codigo-fonte).
+Peço que **leia atentamente toda esta descrição** antes de fazer uso deste software para evitar erros e frustrações. Em caso de problemas e sugestões de modificações, sinta-se a vontade para abrir uma [Issue neste repositório](https://github.com/jjpaulo2/gerador-planilha-desktop/issues) ou entrar em contato particularmente comigo. Se você não for programador, pode ignorar a seção [sobre o código-fonte](#sobre-o-código-fonte).
 
 ### Licença
 
@@ -101,4 +101,50 @@ Esta planilha será gerada pelo programa, então não precisa se preocupar. Se t
 
 ## Sobre o código-fonte
 
-Em breve...
+Algumas informações para desenvolvedores. O programa foi feito utilizando unicamente **Python**. As janelas foram construídas com **PySimpleGUI** (Qt) e os executáveis gerados com **PyInstaller**.
+
+### Dependências
+
+O projeto foi escrito com **Python 3.9** e as dependências gerenciadas via **Pipenv**. As bibliotecas utilizadas foram:
+
+- openpyxl (3.0.6)
+- pysimpleguiqt (0.35.0)
+- pyinstaller (4.2)
+
+Existe um [Makefile](./Makefile) que automatiza esse processo. Se preferir utilizá-lo, veja a seção [Instruções de build](#instruções-de-build).
+
+Se desejar apenas instalar as dependências, execute o seguinte comando.
+
+```shell
+$ pipenv install
+```
+
+### Instruções de execução
+
+Para executar o programa via linha de comando, basta executar os seguintes comandos.
+
+```shell
+$ pipenv shell
+Launching subshell in virtual environment...
+
+$ python -m gerador_planilha_desktop
+```
+
+### Instruções de build
+
+O [Makefile](./Makefile) contém instruções para instalar as dependências e fazer a build da aplicação.
+
+- Instalar dependências e fazer a build
+```shell
+$ make all
+```
+
+- Apenas instalar dependências
+```shell
+$ make prepare
+```
+
+- Apenas fazer build do projeto
+```shell
+$ make binary
+```
