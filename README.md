@@ -1,5 +1,7 @@
 # Gerador de Planilhas (desktop)
 
+![Exemplo de uso](readme/use-example.gif)
+
 Programa para desktop escrito em Python que lê uma planilha do Excel com uma estrutura pré definida e gera uma nova planilha resultante com os dados finais para análise.
 
 Peço que **leia atentamente toda esta descrição** antes de fazer uso deste software para evitar erros e frustrações. Em caso de problemas e sugestões de modificações, sinta-se a vontade para abrir uma [Issue neste repositório](https://github.com/jjpaulo2/gerador-planilha-desktop/issues) ou entrar em contato particularmente comigo. Se você não for programador, pode ignorar a seção [sobre o código-fonte](#sobre-o-código-fonte).
